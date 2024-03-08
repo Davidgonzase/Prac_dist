@@ -16,6 +16,7 @@ public class Servidor {
                 return numero1 + numero2;
             };
 
+
             @Override
             public float multiplicar(float numero1, float numero2) throws RemoteException {
                 return numero1 * numero2;

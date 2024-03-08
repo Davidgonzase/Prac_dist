@@ -4,7 +4,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
 public class Cliente {
-	private static final String IP = "127.0.0.1"; // Puedes cambiar a localhost
+	private static final String IP = "localhost"; // Puedes cambiar a localhost
 	private static final int PUERTO = 1200; //Si cambias aquí el puerto, recuerda cambiarlo en el servidor
 	
     public static void main(String[] args) throws RemoteException, NotBoundException {
@@ -43,6 +43,7 @@ public class Cliente {
 	                    resultado = interfaz.sumar(numero1, numero2);
 	                    break;
 	                case 1:
+						resultado = interfaz.restar(numero1, numero2);
 	                    break;
 	                case 2:
 	                    resultado = interfaz.multiplicar(numero1, numero1);
