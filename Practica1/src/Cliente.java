@@ -12,7 +12,7 @@ public class Cliente {
         Interfaz interfaz = (Interfaz) registry.lookup("Calculadora"); //Buscar en el registro...
         Scanner sc = new Scanner(System.in);
         int eleccion;
-        float numero1, numero2, resultado = 0;
+        float numero1, numero2 = 0, resultado = 0;
         String menu = "\n\n------------------\n\n[-1] => Salir\n[0] => Sumar\n[1] => Restar\n[2] => Multiplicar\n[3] => Dividir\nElige: ";
         do {
             System.out.println(menu);
@@ -32,12 +32,23 @@ public class Cliente {
             		numero1 = 0;
             	}
 
-            	System.out.println("Ingresa el número 2: ");
-            	try{
-                	numero2 = Float.parseFloat(sc.nextLine());
-            	}catch(NumberFormatException e){
-            		numero2 = 0;
-            	}
+            	if(eleccion!=4){
+					boolean temp = true;
+					while (temp) {
+						System.out.println("Ingresa el número 2: ");
+						try{
+							numero2 = Float.parseFloat(sc.nextLine());
+							if(eleccion==3 && numero2==0){
+								System.out.println("No se puede dividir entre 0");
+							}else{
+								temp=false;
+							}
+						}catch(NumberFormatException e){
+							numero2 = 0;
+						}
+					}
+				}
+
                 switch (eleccion) {
 	                case 0:
 	                    resultado = interfaz.sumar(numero1, numero2);
@@ -46,7 +57,7 @@ public class Cliente {
 						resultado = interfaz.restar(numero1, numero2);
 	                    break;
 	                case 2:
-	                    resultado = interfaz.multiplicar(numero1, numero1);
+	                    resultado = interfaz.multiplicar(numero1, numero2);
 	                    break;
 	                case 3:
 	                    resultado = interfaz.dividir(numero1, numero2);

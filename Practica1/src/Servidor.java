@@ -32,9 +32,10 @@ public class Servidor {
             public float restar(float numero1, float numero2) throws RemoteException {
                 return numero1-numero2;
             };
+    
         }, 0);
         Registry registry = LocateRegistry.createRegistry(PUERTO);
        	System.out.println("Servidor escuchando en el puerto " + String.valueOf(PUERTO));
-        registry.bind("Calc", remote); // Registrar calculadora
+        registry.bind("Calculadora", remote); // Registrar calculadora
     }
 }
