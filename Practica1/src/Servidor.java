@@ -12,8 +12,8 @@ public class Servidor {
 				Sobrescribir opcionalmente los métodos que escribimos en la interfaz
         	*/
             @Override
-            public float sumar(float numero1, float numero2) throws RemoteException {
-                return numero1 + numero2;
+            public float sumar(float numero1, float numero2, float numero3) throws RemoteException {
+                return numero1 + numero2 + numero3;
             };
 
 
@@ -32,7 +32,13 @@ public class Servidor {
             public float restar(float numero1, float numero2) throws RemoteException {
                 return numero1-numero2;
             };
-    
+        
+
+            @Override
+            public float raiz(float numero1) throws RemoteException {
+                return (float) Math.sqrt(numero1);
+            }
+            
         }, 0);
         Registry registry = LocateRegistry.createRegistry(PUERTO);
        	System.out.println("Servidor escuchando en el puerto " + String.valueOf(PUERTO));
