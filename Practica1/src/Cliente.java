@@ -33,20 +33,12 @@ public class Cliente {
             		numero1 = 0;
             	}
             	if(eleccion!=4){
-					boolean temp = true;
-					while (temp) {
-						System.out.println("Ingresa el número 2: ");
-						try{
-							numero2 = Float.parseFloat(sc.nextLine());
-
-							if(eleccion==3 && numero2==0){
-								System.out.println("No se puede dividir entre 0");
-							}else{
-								temp=false;
-							}
-						}catch(NumberFormatException e){
-							numero2 = 0;
-						}
+					System.out.println("Ingresa el número 2: ");
+					try{
+						numero2 = Float.parseFloat(sc.nextLine());
+						System.out.println("No se puede dividir entre 0");
+					}catch(NumberFormatException e){
+						numero2 = 0;
 					}
 				}
 
