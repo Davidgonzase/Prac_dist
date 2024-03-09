@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+
 public class Servidor {
 	private static final int PUERTO = 1200; //Si cambias aquí el puerto, recuerda cambiarlo en el cliente
     public static void main(String[] args) throws RemoteException, AlreadyBoundException {
@@ -24,6 +25,7 @@ public class Servidor {
 
             @Override
             public float dividir(float numero1, float numero2) throws RemoteException {
+                if(numero2==0)return -1;
                 return numero1 / numero2;
             }
 
@@ -36,6 +38,7 @@ public class Servidor {
 
             @Override
             public float raiz(float numero1) throws RemoteException {
+                if(numero1<0)return -1;
                 return (float) Math.sqrt(numero1);
             }
             

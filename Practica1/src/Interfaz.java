@@ -11,3 +11,4 @@ public interface Interfaz extends Remote {
     float dividir(float numero1, float numero2) throws RemoteException;
     float raiz(float numero1) throws RemoteException;
 }
+
