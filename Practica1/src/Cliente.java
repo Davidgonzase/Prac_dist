@@ -36,7 +36,6 @@ public class Cliente {
 					System.out.println("Ingresa el número 2: ");
 					try{
 						numero2 = Float.parseFloat(sc.nextLine());
-						System.out.println("No se puede dividir entre 0");
 					}catch(NumberFormatException e){
 						numero2 = 0;
 					}
